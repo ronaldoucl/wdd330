@@ -1,6 +1,4 @@
 function convertToJson(res) {
-  console.log("test");
-  console.log(res);
   if (res.ok) {
     return res.json();
   } else {
