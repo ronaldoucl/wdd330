@@ -11,7 +11,6 @@ function convertToJson(res) {
 export default class ProductData {
   
   constructor() {
-    console.log(baseURL);
   }
 
   async getData(category) {
