@@ -1,5 +1,9 @@
 import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
+/**
+ * Report Task W02: Ronaldo Campos
+ * Empty Card Error: cart.html
+ */
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   if(cartItems){
