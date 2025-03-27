@@ -224,6 +224,19 @@ button {
   text-transform: capitalize;
 }
 
+.checkout-buttom{
+  display: block;
+  width: 50%;
+  margin: 15px auto;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: var(--tertiary-color);
+  padding: 20px;
+  border-radius: 5px;
+  color: black;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -235,6 +248,9 @@ button {
   .cart-card {
     font-size: inherit;
     grid-template-columns: 150px auto 15%;
+  }
+  .checkout-buttom{
+    width: 30%;
   }
 }
 
