@@ -31,7 +31,7 @@ function productDetailsTemplate(product) {
         <h2>${product.Brand.Name}</h2>
         <h3 class="divider">Product</h3>
         <img
-          src="${product.Image}"
+          src="${product.Images.PrimaryExtraLarge}"
           alt="${product.NameWithoutBrand}"
           id="productImage"
           class="divider"
