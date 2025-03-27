@@ -21,7 +21,17 @@ export default class ProductDetails {
 
 function addProductToCart() {
   const cartItems = getLocalStorage("so-cart") || [];
-  cartItems.push(this.product);
+  if(cartItems && cartItems.find(item => item.Id == this.product.Id)) {
+    cartItems.forEach(item => {
+      if(item.Id == this.product.Id){
+        item.quantity = item.quantity + 1;
+        item.FinalPrice = item.FinalPrice * item.quantity;
+      }
+    });
+  } else {
+    this.product.quantity = 1;
+    cartItems.push(this.product);
+  }
   setLocalStorage("so-cart", cartItems);
 }
 
