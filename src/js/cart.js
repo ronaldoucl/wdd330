@@ -1,19 +1,29 @@
 import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
 /**
- * Report Task W02: Ronaldo Campos
+ * Report Task W02 and W04: Ronaldo Campos
  * Empty Card Error: cart.html
+ * Total$ in Cart
  */
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  if(cartItems){
-    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+
+  const productList = document.querySelector(".product-list");
+  const cartTotal = document.querySelector(".cart-total");
+  const checkoutButton = document.querySelector(".checkout-buttom");
+
+  if (cartItems && cartItems.length) {
+    productList.innerHTML = cartItems.map(cartItemTemplate).join("");
+
+    const totalPrice = cartItems.reduce((sum, item) => sum + item.FinalPrice, 0);
+    cartTotal.textContent = `Total: $${totalPrice.toFixed(2)}`;
+    cartTotal.classList.remove("hide");
+    checkoutButton.style.display = "block";
   } else {
-    document.querySelector(".checkout-buttom").style.display = "none";
-    document.querySelector(".product-list").innerHTML = "<li>The cart is empty</li>";
+    productList.innerHTML = "<li>The cart is empty</li>";
+    cartTotal.classList.add("hide");
+    checkoutButton.style.display = "none";
   }
-  
 }
 
 function cartItemTemplate(item) {
